@@ -48,9 +48,3 @@ public class Ex07Controller {
 		return "redirect:/ex06/sub05";
 	}
 }
-
-
-
-
-
-
