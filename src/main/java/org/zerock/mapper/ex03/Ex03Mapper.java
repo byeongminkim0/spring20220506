@@ -11,5 +11,9 @@ public interface Ex03Mapper {
 	String selectEmployeeFirstNameById(int id);
 
 	List<BoardDto> selectBoard();
+
+	BoardDto getBoard(int id);
+
+	int updateBoard(BoardDto board);
 	
 }

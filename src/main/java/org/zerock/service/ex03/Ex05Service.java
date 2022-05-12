@@ -25,4 +25,14 @@ public class Ex05Service {
 		return mapper.selectBoard();
 	}
 
+	public BoardDto getBoard(int id) {
+		return mapper.getBoard(id);
+	}
+
+	public boolean updateBoard(BoardDto board) {
+		int cnt = mapper.updateBoard(board);
+		
+		return cnt == 1;
+	}
+
 }
