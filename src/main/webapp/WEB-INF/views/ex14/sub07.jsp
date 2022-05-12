@@ -12,34 +12,31 @@
 <title>Insert title here</title>
 </head>
 <body>
-
-	<c:url value="/ex14/sub06" var="employeeUrl"></c:url>
-	
-	<h1>${message }</h1>
-
-	<h1>직원등록</h1>
-	<form action="${employeeUrl }" method="post">
-		First Name : <input type="text" name="firstName" value="donald" /> <br />
-		Last Name : <input type="text" name="lastName" value="trump" /> <br />
-		Birth Date : <input type="date" name="birthDate" value="1950-02-02" /> <br />
-		Photo : <input type="text" name="photo" value="photo9999" /> <br />
-		Notes : <textarea name="notes" id="" cols="30" rows="10">US President...</textarea> <br />
+	<h1>직원 목록</h1>
+	<table class="table">
+		<thead>
+			<tr>
+				<th>ID</th>
+				<th>FIRST NAME</th>
+				<th>LAST NAME</th>
+				<th>BIRTH</th>
+				<th>PHOTO</th>
+				<th>NOTES</th>
+			</tr>
+		</thead>
 		
-		<button>등록</button>
-	</form>
+		<tbody>
+			<c:forEach items="${employees }" var="emp">
+				<tr>
+					<td>${emp.id }</td>
+					<td>${emp.firstName }</td>
+					<td>${emp.lastName }</td>
+					<td>${emp.birthDate }</td>
+					<td>${emp.photo }</td>
+					<td>${emp.notes }</td>
+				</tr>
+			</c:forEach>
+		</tbody>
+	</table>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -1,5 +1,7 @@
 package org.zerock.controller.ex09;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -72,7 +74,7 @@ public class Ex14Controller {
 	
 	@GetMapping("sub05")
 	public void method05() {
-		// from 있는 jsp forward
+		// form 있는 jsp forward
 	}
 	
 	@PostMapping("sub05")
@@ -90,28 +92,40 @@ public class Ex14Controller {
 		// 4.
 		
 		return "redirect:/ex14/sub05";
+		
 	}
 	
+	/* 직원 등록 */
 	@GetMapping("sub06")
-	public void method07() {
-		// from 있는 jsp forward
+	public void employeeInputForm() {
+		
 	}
 	
 	@PostMapping("sub06")
-	public String method08(EmployeeDto employee, RedirectAttributes rttr) {
-		// 1.
-		System.out.println(employee);
-		// 2.
-		boolean ok = service.addEmployee(employee);
-		// 3.
-		if (ok) {
-			rttr.addFlashAttribute("message", "등록 완료");
+	public String addEmployeeProcess(EmployeeDto dto, RedirectAttributes rttr) {
+		boolean success = service.addEmployee(dto);
+		
+		if (success) {
+			rttr.addFlashAttribute("message", "직원 등록 완료");
 		} else {
-			rttr.addFlashAttribute("message", "등록 실패");
+			rttr.addFlashAttribute("message", "직원 등록 실패");
 		}
-		// 4.
 		
 		return "redirect:/ex14/sub06";
+	}
+	
+	@GetMapping("sub07")
+	public void method07(Model model) {
+		List<EmployeeDto> list = service.listEmployee();
+		
+		model.addAttribute("employees", list);
+	}
+	
+	@GetMapping("sub08")
+	public void method08(Model model) {
+		List<CustomerDto> list = service.listCustomer();
+		
+		model.addAttribute("customers", list);
 	}
 }
 

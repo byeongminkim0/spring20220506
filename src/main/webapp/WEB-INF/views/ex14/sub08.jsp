@@ -12,34 +12,33 @@
 <title>Insert title here</title>
 </head>
 <body>
-
-	<c:url value="/ex14/sub06" var="employeeUrl"></c:url>
-	
-	<h1>${message }</h1>
-
-	<h1>직원등록</h1>
-	<form action="${employeeUrl }" method="post">
-		First Name : <input type="text" name="firstName" value="donald" /> <br />
-		Last Name : <input type="text" name="lastName" value="trump" /> <br />
-		Birth Date : <input type="date" name="birthDate" value="1950-02-02" /> <br />
-		Photo : <input type="text" name="photo" value="photo9999" /> <br />
-		Notes : <textarea name="notes" id="" cols="30" rows="10">US President...</textarea> <br />
+	<h1>고객 목록</h1>
+	<table class="table">
+		<thead>
+			<tr>
+				<th>ID</th>
+				<th>CUSTOMER NAME</th>
+				<th>CONTACT NAME</th>
+				<th>ADDRESS</th>
+				<th>CITY</th>
+				<th>POSTAL CODE</th>
+				<th>COUNTRY</th>
+			</tr>
+		</thead>
 		
-		<button>등록</button>
-	</form>
+		<tbody>
+			<c:forEach items="${customers }" var="cus">
+				<tr>
+					<td>${cus.id }</td>
+					<td>${cus.customerName }</td>
+					<td>${cus.contactName }</td>
+					<td>${cus.address }</td>
+					<td>${cus.city }</td>
+					<td>${cus.postalCode }</td>
+					<td>${cus.country }</td>
+				</tr>
+			</c:forEach>
+		</tbody>
+	</table>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
