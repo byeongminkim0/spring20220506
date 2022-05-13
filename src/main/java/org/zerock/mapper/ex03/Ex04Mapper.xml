@@ -30,4 +30,9 @@
 		WHERE id = #{id }
 	</update>
 
+	<delete id="deleteReplyByBoard">
+		DELETE FROM Reply
+		WHERE board_id = #{boardId }
+	</delete>
+
 </mapper>
