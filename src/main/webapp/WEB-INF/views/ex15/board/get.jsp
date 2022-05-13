@@ -17,17 +17,34 @@
 	<c:url value="/ex15/board/modify" var="modifyLink"></c:url>
 	
 	<form action="${modifyLink }" method="post">
-		<input type="hidden" name="id" value="${board.id }" />
+	<input type="hidden" name="id" value="${board.id }" />
 	
-		제목 : <input type="text" value="${board.title }" name="title"  /> <br />
-		
-		본문 : <textarea cols="30" rows="10" name="body" >${board.body }</textarea> <br />
-		
-		작성일시 : <input type="datetime-local" value="${board.inserted }" readonly /> <br />
-		
-		<button>수정</button>
+	제목 : <input type="text" value="${board.title }" name="title" /> <br />
+	
+	본문 : <textarea cols="30" rows="10" name="body" >${board.body }</textarea> <br />
+	
+	작성일시 : <input type="datetime-local" value="${board.inserted }" readonly /> <br />
+	
+	<button>수정</button>
 	</form>
 	
-	
+	<c:url value="/ex15/board/remove" var="removeLink" />
+	<form action="${removeLink }" method="post">
+		<input type="hidden" name="id" value="${board.id }"/>
+		<button>삭제</button>
+	</form>
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+

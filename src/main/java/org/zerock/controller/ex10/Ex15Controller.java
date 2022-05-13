@@ -18,7 +18,7 @@ public class Ex15Controller {
 	
 	@Autowired
 	private Ex05Service service;
-	
+
 	@RequestMapping("sub01")
 	public String method01(int id, Model model) {
 		String name = service.getCustomerNameById(id);
@@ -31,7 +31,6 @@ public class Ex15Controller {
 	@RequestMapping("sub02")
 	public String method02(int id, Model model) {
 		String name = service.getEmployeeFirstNameById(id);
-		
 		model.addAttribute("employeeName", name);
 		
 		return "ex14/sub02";
@@ -46,7 +45,7 @@ public class Ex15Controller {
 		
 	}
 	
-	@GetMapping("board/{id}")
+	@GetMapping("board/{id}") // 책 366쪽
 	public String getBoard(@PathVariable("id") int id, Model model) {
 		System.out.println(id);
 		
@@ -54,7 +53,8 @@ public class Ex15Controller {
 		BoardDto dto = service.getBoard(id);
 		// 모델에 넣고
 		model.addAttribute("board", dto);
-		// board/get.jsp로 포워드
+		
+		// /WEB-INF/views/board/get.jsp로 포워드
 		return "/ex15/board/get";
 	}
 	
@@ -70,4 +70,28 @@ public class Ex15Controller {
 		
 		return "redirect:/ex15/board/" + board.getId();
 	}
+	
+	@PostMapping("/board/remove")
+	public String removeBoard(int id) {
+		boolean success = service.removeBoardById(id);
+		
+		if (success) {
+			
+		} else {
+			
+		}
+		
+		return "redirect:/ex15/board/list";
+	}
 }
+
+
+
+
+
+
+
+
+
+
+
