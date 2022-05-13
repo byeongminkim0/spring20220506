@@ -26,4 +26,9 @@ public class Ex06Service {
 		return mapper.selectReplyByBoardId(boardId);
 	}
 
+	public boolean removeReply(int id) {
+		int cnt = mapper.deleteReplyById(id);
+		return cnt == 1;
+	}
+
 }
